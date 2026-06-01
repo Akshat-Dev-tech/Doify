@@ -9,8 +9,16 @@ function App() {
     setTask('')
   }
 
-  const renderToDos = (todo) => (
+  const removeTask = (todo,i) => {
+  console.log("Deleted Tasks", todo, i)
+   setTasks(tasks.filter((_,index)=>index!=i))
+  }
+
+  const renderToDos = (todo,i) => (
+    <span>
       <li>{todo}</li>
+      <button type="button" onClick={()=>removeTask(todo,i)}> Remove Tasks</button>
+    </span>
   )
 
   return (
@@ -24,7 +32,7 @@ function App() {
       <div >
         <ul>
           {tasks.length > 0 ?
-            tasks?.map((todo) => renderToDos(todo)
+            tasks?.map((todo,i) => renderToDos(todo,i)
             ) :
             <p>No to do yet</p>
           }
