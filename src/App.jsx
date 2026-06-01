@@ -15,10 +15,10 @@ function App() {
   }
 
   const renderToDos = (todo,i) => (
-    <span>
+    <div className='display-flex'>
       <li>{todo}</li>
       <button type="button" onClick={()=>removeTask(todo,i)}> Remove Tasks</button>
-    </span>
+    </div>
   )
 
   return (
@@ -29,7 +29,7 @@ function App() {
         <button type="button" onClick={updateTask}>Add Task</button>
       </div>
       <h2>Tasks List</h2>
-      <div >
+      <div className='display-tasks'>
         <ul>
           {tasks.length > 0 ?
             tasks?.map((todo,i) => renderToDos(todo,i)

@@ -109,3 +109,20 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+
+
+.display-tasks{
+  border:1px solid black;
+  padding:10px;
+  margin:80px;
+  background-color: #d9dde4;
+  color: #08060d;
+}
+
+.display-flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
