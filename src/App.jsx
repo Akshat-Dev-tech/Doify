@@ -5,7 +5,7 @@ function App() {
   const [tasks, setTasks] = useState([])
   const [task, setTask] = useState("")
   const updateTask = () => {
-    setTasks([...tasks, task])
+    setTasks([...tasks,{ id:Date.now() , todo:task , completed:false}])
     setTask('')
   }
 
@@ -14,10 +14,10 @@ function App() {
    setTasks(tasks.filter((_,index)=>index!=i))
   }
 
-  const renderToDos = (todo,i) => (
+  const renderToDos = (todoobj,i) => (
     <div className='display-flex'>
-      <li>{todo}</li>
-      <button type="button" onClick={()=>removeTask(todo,i)}> Remove Tasks</button>
+      <li>{todoobj.todo}</li>
+      <button type="button" onClick={()=>removeTask(todoobj.todo,i)}> Remove Tasks</button>
     </div>
   )
 
@@ -32,7 +32,7 @@ function App() {
       <div className='display-tasks'>
         <ul>
           {tasks.length > 0 ?
-            tasks?.map((todo,i) => renderToDos(todo,i)
+            tasks?.map((todoobj,i) => renderToDos(todoobj,i)
             ) :
             <p>No to do yet</p>
           }
