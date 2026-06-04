@@ -126,3 +126,8 @@ code {
   justify-content: center;
   gap: 8px;
 }
+
+.completed{
+  color: green;
+  font-weight: 800;
+}
